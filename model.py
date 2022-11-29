@@ -114,10 +114,6 @@ class StreetModel(Model):
         self.schedule.add(a)
         self.id = self.id + 1
 
-        
-
-
-        
                 
     def step(self):
         self.schedule.step()
@@ -125,9 +121,23 @@ class StreetModel(Model):
         trafficLights = []
         for agent in self.schedule.agents:
             if(type(agent) == CarAgent or type(agent) == CarAgentDifferentA or type(agent) == CarAgentDifferentB or type(agent) == CarAgentDifferentC):
-                carPos.append((agent.id, agent.coords[0], agent.coords[1], agent.z, str(type(agent))))
+            #     carPos.append((str(agent.id), agent.coords[0], agent.z, agent.coords[1], str(type(agent))))
+                carID = str(agent.id)
+                carX = agent.coords[0]
+                carZ = agent.z
+                carY = agent.coords[1]
+                carType = str(type(agent))
+
+                pos = [carID, carX, carZ, carY, carType]
+                carPos.append(pos)
+
             if(type(agent) == TrafficLightAgent):
-                trafficLights.append((agent.id, agent.state))
+                #trafficLights.append((agent.id, agent.state))
+                lightID = str(agent.id)
+                lightState = agent.state
+                l = [lightID, lightState]
+                trafficLights.append(l)
+
         print(carPos)
         print(trafficLights)
         self.time += 1
@@ -135,3 +145,5 @@ class StreetModel(Model):
             self.grid.remove_agent(x)
             self.schedule.remove(x)
             self.kill_agents.remove(x)
+        
+        return carPos, trafficLights
