@@ -286,7 +286,7 @@ class CarAgentDifferentA(Agent):
         self.coords = x,y
         self.z = 3
         self.model = model
-        self.speed = np.random.choice(np.arange(1, 4), p=[0.3, 0.4, 0.3])
+        self.speed = 0.5#np.random.choice(np.arange(1, 4), p=[0.3, 0.4, 0.3])
         self.next_pos = None
         self.direction = direction
         self.desc = "car"

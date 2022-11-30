@@ -44,14 +44,14 @@ class StreetModel(Model):
             self.schedule.add(a)
             self.id = self.id + 1
 
-        # a = CarAgentDifferentA(self.id, 0, 4, 0, self)
-        # self.grid.place_agent(a, (0, 4))
-        # self.schedule.add(a)
-        # self.id = self.id + 1
-        a = CarAgent(self.id, 0, 4, 0, self)
+        a = CarAgentDifferentA(self.id, 0, 4, 0, self)
         self.grid.place_agent(a, (0, 4))
         self.schedule.add(a)
         self.id = self.id + 1
+        # a = CarAgent(self.id, 0, 4, 0, self)
+        # self.grid.place_agent(a, (0, 4))
+        # self.schedule.add(a)
+        # self.id = self.id + 1
 
         a = CarAgent(self.id, 0, 3, 0, self)
         self.grid.place_agent(a, (0, 3))
