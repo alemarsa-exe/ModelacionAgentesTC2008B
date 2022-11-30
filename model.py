@@ -44,7 +44,11 @@ class StreetModel(Model):
             self.schedule.add(a)
             self.id = self.id + 1
 
-        a = CarAgentDifferentA(self.id, 0, 4, 0, self)
+        # a = CarAgentDifferentA(self.id, 0, 4, 0, self)
+        # self.grid.place_agent(a, (0, 4))
+        # self.schedule.add(a)
+        # self.id = self.id + 1
+        a = CarAgent(self.id, 0, 4, 0, self)
         self.grid.place_agent(a, (0, 4))
         self.schedule.add(a)
         self.id = self.id + 1
@@ -56,26 +60,34 @@ class StreetModel(Model):
 
 
 
-        a = CarAgentDifferentB(self.id, 9, 5, 2, self)
-        self.grid.place_agent(a, (9, 5))
-        self.schedule.add(a)
-        self.id = self.id + 1
+        # a = CarAgent(self.id, 9, 5, 2, self)
+        # self.grid.place_agent(a, (9, 5))
+        # self.schedule.add(a)
+        # self.id = self.id + 1
+        # # a = CarAgentDifferentB(self.id, 9, 5, 2, self)
+        # # self.grid.place_agent(a, (9, 5))
+        # # self.schedule.add(a)
+        # # self.id = self.id + 1
 
-        a = CarAgent(self.id, 9, 6, 2, self)
-        self.grid.place_agent(a, (9, 6))
-        self.schedule.add(a)
-        self.id = self.id + 1
+        # a = CarAgent(self.id, 9, 6, 2, self)
+        # self.grid.place_agent(a, (9, 6))
+        # self.schedule.add(a)
+        # self.id = self.id + 1
 
 
 
-        a = CarAgentDifferentC(self.id, 3, 9, 1, self)
-        self.grid.place_agent(a, (3, 9))
-        self.schedule.add(a)
-        self.id = self.id + 1
+        # a = CarAgent(self.id, 3, 9, 1, self)
+        # self.grid.place_agent(a, (3, 9))
+        # self.schedule.add(a)
+        # self.id = self.id + 1
+        # # a = CarAgentDifferentC(self.id, 3, 9, 1, self)
+        # # self.grid.place_agent(a, (3, 9))
+        # # self.schedule.add(a)
+        # # self.id = self.id + 1
 
-        a = CarAgent(self.id, 4, 9, 1, self)
-        self.grid.place_agent(a, (4, 9))
-        self.schedule.add(a)
+        # a = CarAgent(self.id, 4, 9, 1, self)
+        # self.grid.place_agent(a, (4, 9))
+        # self.schedule.add(a)
         self.id = self.id + 1
 
 
@@ -124,8 +136,8 @@ class StreetModel(Model):
             if(type(agent) == CarAgent or type(agent) == CarAgentDifferentA or type(agent) == CarAgentDifferentB or type(agent) == CarAgentDifferentC):
             #     carPos.append((str(agent.id), agent.coords[0], agent.z, agent.coords[1], str(type(agent))))
                 carID = str(agent.id)
-                carX = agent.coords[0]
-                carZ = agent.coords[1]
+                carX = agent.coords[0]*4
+                carZ = agent.coords[1]*4
                 carY = agent.z
                 carType = str(type(agent))
 
