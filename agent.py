@@ -177,12 +177,6 @@ class CarAgent(Agent):
         self.desc = "Car"
     def step(self):
 
-        crash = self.model.grid.get_cell_list_contents([self.coords])
-
-        for agent in crash:
-            if ((type(agent) is CarAgent or type(agent) is CarAgentDifferentA or type(agent) is CarAgentDifferentB or type(agent) is CarAgentDifferentC) and agent.id != self.id):
-                self.model.kill_agents.append(agent)
-                return
 
         if self.direction == 0:
             #Change
@@ -300,12 +294,6 @@ class CarAgentDifferentA(Agent):
     
     def step(self):
 
-        crash = self.model.grid.get_cell_list_contents([self.coords])
-
-        for agent in crash:
-            if ((type(agent) is CarAgent or type(agent) is CarAgentDifferentA or type(agent) is CarAgentDifferentB or type(agent) is CarAgentDifferentC) and agent.id != self.id):
-                self.model.kill_agents.append(agent)
-                return
 
         if self.direction == 0: 
             if self.coords == (8,4):
@@ -433,12 +421,6 @@ class CarAgentDifferentB(Agent):
         self.desc = "TrafficLight"
     def step(self):
 
-        crash = self.model.grid.get_cell_list_contents([self.coords])
-
-        for agent in crash:
-            if ((type(agent) is CarAgent or type(agent) is CarAgentDifferentA or type(agent) is CarAgentDifferentB or type(agent) is CarAgentDifferentC) and agent.id != self.id):
-                self.model.kill_agents.append(agent)
-                return
 
         #semaforo esquina inferior izquierda
         if self.direction == 0: 
@@ -574,12 +556,6 @@ class CarAgentDifferentC(Agent):
         self.desc = "TrafficLight"
     def step(self):
 
-        crash = self.model.grid.get_cell_list_contents([self.coords])
-
-        for agent in crash:
-            if ((type(agent) is CarAgent or type(agent) is CarAgentDifferentA or type(agent) is CarAgentDifferentB or type(agent) is CarAgentDifferentC) and agent.id != self.id):
-                self.model.kill_agents.append(agent)
-                return
 
         if self.direction == 0: 
             #Change
