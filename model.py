@@ -118,6 +118,7 @@ class StreetModel(Model):
     def step(self):
         self.schedule.step()
         carPos = []
+        grassPos = []
         trafficLights = []
         for agent in self.schedule.agents:
             if(type(agent) == CarAgent or type(agent) == CarAgentDifferentA or type(agent) == CarAgentDifferentB or type(agent) == CarAgentDifferentC):
@@ -137,6 +138,16 @@ class StreetModel(Model):
                 lightState = agent.state
                 l = [lightID, lightState]
                 trafficLights.append(l)
+
+            # if(type(agent) == GrassAgent):
+            #     carID = str(agent.id)
+            #     carX = agent.coords[0]
+            #     carZ = agent.coords[1]
+            #     carY = agent.z
+            #     carType = str(type(agent))
+
+            #     pos = [carID, carX, carY, carZ, carType]
+            #     carPos.append(pos)
 
         print(carPos)
         print(trafficLights)
