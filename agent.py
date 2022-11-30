@@ -10,6 +10,7 @@ class GrassAgent(Agent):
         self.model = model
         self.coords = x,y
         self.desc = "Grass"
+        self.z = 3
     def step(self):
         return
     def advance(self):

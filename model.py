@@ -124,11 +124,11 @@ class StreetModel(Model):
             #     carPos.append((str(agent.id), agent.coords[0], agent.z, agent.coords[1], str(type(agent))))
                 carID = str(agent.id)
                 carX = agent.coords[0]
-                carZ = agent.z
-                carY = agent.coords[1]
+                carZ = agent.coords[1]
+                carY = agent.z
                 carType = str(type(agent))
 
-                pos = [carID, carX, carZ, carY, carType]
+                pos = [carID, carX, carY, carZ, carType]
                 carPos.append(pos)
 
             if(type(agent) == TrafficLightAgent):
