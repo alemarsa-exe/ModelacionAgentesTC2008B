@@ -254,7 +254,7 @@ public class AgentControllerUpdate : MonoBehaviour
                         {
                             light.color = new Color(0.0f, 255.0f, 0.0f);
                         }
-                        if(traffic.state == "Yellow")
+                        if(traffic.state == "Yellow") // comment
                         {
                             light.color = Color.yellow;
                         }
