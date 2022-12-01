@@ -53,7 +53,7 @@ class StreetModel(Model):
         # self.schedule.add(a)
         # self.id = self.id + 1
 
-        a = CarAgent(self.id, 0, 3, 0, self)
+        a = CarAgentDifferentB(self.id, 0, 3, 0, self)
         self.grid.place_agent(a, (0, 3))
         self.schedule.add(a)
         self.id = self.id + 1
@@ -88,7 +88,7 @@ class StreetModel(Model):
         # a = CarAgent(self.id, 4, 9, 1, self)
         # self.grid.place_agent(a, (4, 9))
         # self.schedule.add(a)
-        self.id = self.id + 1
+        #self.id = self.id + 1
 
 
 
@@ -98,7 +98,7 @@ class StreetModel(Model):
         self.schedule.add(a)
         self.id = self.id + 1
 
-        a = CarAgent(self.id, 6, 0, 3, self)
+        a = CarAgentDifferentC(self.id, 6, 0, 3, self)
         self.grid.place_agent(a, (6, 0))
         self.schedule.add(a)
         self.id = self.id + 1
@@ -136,10 +136,19 @@ class StreetModel(Model):
             if(type(agent) == CarAgent or type(agent) == CarAgentDifferentA or type(agent) == CarAgentDifferentB or type(agent) == CarAgentDifferentC):
             #     carPos.append((str(agent.id), agent.coords[0], agent.z, agent.coords[1], str(type(agent))))
                 carID = str(agent.id)
-                carX = agent.coords[0]*4
-                carZ = agent.coords[1]*4
+                carX = agent.coords[0]*3.5
+                carZ = agent.coords[1]*3.5
                 carY = agent.z
-                carType = str(type(agent))
+                if(type(agent) == CarAgent):
+                    carType = 1
+                elif(type(agent) == CarAgentDifferentA):
+                    carType = 2
+                elif(type(agent) == CarAgentDifferentB):
+                    carType = 3
+                elif(type(agent) == CarAgentDifferentC):
+                    carType = 4
+                
+                
 
                 pos = [carID, carX, carY, carZ, carType]
                 carPos.append(pos)
