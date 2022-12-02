@@ -23,20 +23,6 @@ def positionsToJSON(carPos):
     #return jsonify({'positions': posDICT})
     return json.dumps(posDICT)
 
-def grassToJSON(grassPos):
-    posDICT = []
-    for p in grassPos:
-        pos = {
-            "carId": p[0],
-            "x": p[1],
-            "y": p[2],
-            "z": p[3],
-            "typeCar": p[4],
-        }
-        posDICT.append(pos)
-    return json.dumps(posDICT)
-
-
 def lightStatesToJSON(trafficLights):
     lightDICT = []
     count = 0
@@ -46,13 +32,6 @@ def lightStatesToJSON(trafficLights):
             "state": tra[1]
         }
         lightDICT.append(light)
-        #count += 1
-    # for s in range(4):
-    #     light = {
-    #         "state": lightStates[s]
-    #     }
-    #     lightDICT.append(light)
-    #return jsonify({'positions': lightDICT})
     return json.dumps(lightDICT)
 
 
@@ -75,7 +54,14 @@ def model_run():
 
     ans = "{ \"positions\": " + positionsToJSON(
         carPos) + ", \"trafficLights\": " + lightStatesToJSON(trafficLights) + "}"
+        
+    return ans
 
+@app.route('/traffics', methods=['POST', 'GET'])
+def traffics():
+    [carPos, trafficLights] = model.step()
+
+    ans = "{ \"trafficLights\": " + lightStatesToJSON(trafficLights) + "}"
 
     return ans
 
